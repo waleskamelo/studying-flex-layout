@@ -1,0 +1,140 @@
+/* 1- Nome da Tag (sobrescrito pela classe) 
+body {
+}
+
+/* 2- Nome da classe (sobrescrito pelo identificador)
+.content {
+}
+
+/* 3- Identificador unico (so pode ser definido uma unica vez) 
+#page {
+} */
+
+* {
+    margin: 0; 
+     /* margem de todos os lados */
+    padding: 0;
+    /* espacamento interno dos elementos */
+    box-sizing: border-box;
+    /* preenchimento e a borda na largura e na altura */
+}
+
+body {
+    /* faz com que o elemento se torne um flex container e os elementos internos em flex itens*/
+    /* por padrao os elementos ficarao agrupados em linha  */
+    /*FLEX-GROW: habilidade de um flex item crescer*/
+    /*FLEX-SHRINK: capacidade de reducao do item*/
+    /*FLEX-BASICS: tamanho inicial do item*/
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3px;
+    flex: 1 1 100vw;
+}
+
+header,
+nav,
+main,
+aside,
+footer {
+    background: #a1a1a1;
+    display: flex;
+    margin: 3px;
+}
+
+header {
+    flex: 1 1 100vw;
+    height: 100px;
+}
+
+header #logo {
+    flex: 0 1 200px;
+    background: #c9c9c9;
+}
+
+#openMenu,
+#closeMenu {
+    border: none;
+    background: none;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 5px 0px 5px;
+    cursor: pointer;
+    display: none;
+}
+
+nav {
+    flex: 1 1 100vw;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a {
+    margin: 3%;
+    font-size: 20pt;
+}
+
+main {
+    flex: 20 1 500px;
+    height: calc(100vh - 224px);
+}
+
+aside {
+    flex: 1 1 200px;
+}
+
+footer {
+    flex: 1 1 100vw;
+    height: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* color: inherit; defini a cor para a padrao do elemento pai */
+}
+
+/********************   MEDIA QUERY   ********************/
+@media only screen and (max-width: 923px) {
+
+    main {
+        height: calc(100vh - 330px)
+    }
+
+    aside {
+        flex: 1 1 100vw;
+        height: 100px;
+    }
+}
+
+/********************   MEDIA QUERY NAV MOBILE  ********************/
+@media only screen and (max-width: 717px) {
+
+    #openMenu,
+    #closeMenu {
+        display: block;
+        z-index: 99;
+    }
+
+    #openMenu {
+        margin-left: auto;
+    }
+
+    #closeMenu {
+        position: fixed;
+        right: 15px;
+        top: 15px;
+    }
+
+    nav {
+        position: fixed;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.8);
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        opacity: 0;
+        transition: 0.3s;
+    }
+}
